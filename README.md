@@ -8,7 +8,8 @@ A small wiki engine, written in Go.
 - can be run as standalone or as a FCGI process
 - uses standard ``net/http``, no web frameworks
 
-Missing features:
+Missing:
 
 - Go dependency management (godep)
+- tests
 - templates (you have to create them by yourself)
