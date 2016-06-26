@@ -37,7 +37,11 @@ import (
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 	user, _ := aaa.CurrentUser(w, r)
-	t, _ := template.ParseFiles("templates/index.html")
+	t, err := template.ParseFiles("templates/index.html")
+	if err != nil {
+		fmt.Fprintf(w, "%v", err)
+		return
+	}
 	t.Execute(w, user.Username) // merge.
 }
 
