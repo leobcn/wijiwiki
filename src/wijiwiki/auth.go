@@ -118,14 +118,14 @@ func bruteProtect() {
 }
 func initAuth(adminPwd string) {
 	var err error
-	userDb, err = httpauth.NewGobFileAuthBackend("users.db")
+	userDb, err = httpauth.NewGobFileAuthBackend("data/users.db")
 	if err != nil {
 		panic(err)
 	}
 
 	if len(adminPwd) > 0 {
-		if err := ioutil.WriteFile("users.db", []byte{}, 0666); err != nil {
-			log.Printf("Couldn't create 'users.db' file: %v", err)
+		if err := ioutil.WriteFile("data/users.db", []byte{}, 0666); err != nil {
+			log.Printf("Couldn't create 'data/users.db' file: %v", err)
 			os.Exit(1)
 		}
 
